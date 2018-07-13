@@ -1,0 +1,46 @@
+<%@page import="health.diseases.DiseaseDao"%>
+<%@page import="health.doctor.DoctorUsers"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+			ArrayList<DoctorUsers> list = DiseaseDao.refdoc();
+			
+		%>
+		<table border="2" width="100%">
+			<tr>
+				<th>USERNAME</th>
+				<th>EMAIL</th>
+				<th>PHONE</th>
+				<th>COUNTRY</th>
+				<th>UPDATE</th>
+				<th>DELETE</th>
+				
+			</tr>
+			<%
+					for(Users u : list)
+					{
+			%>
+				<tr>
+					<td> <%=u.getUsername() %></td>
+					<td> <%=u.getEmail()  %></td>
+					<td>  <%= u.getPhone()  %> </td>
+					<td>  <%=u.getCountry() %> </td>
+					<td> <a href="updateUser.jsp?username=<%=u.getUsername()%>">UPDATE</a></td>
+					<td> <a href="deleteUser.jsp?username=<%=u.getUsername()%>">DELETE</a></td>
+					
+				</tr>	
+				<%
+					}
+				%>
+			
+		</table>
+</body>
+</html>

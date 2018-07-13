@@ -1,0 +1,29 @@
+package health.diseases;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class Disease {
+	
+	@RequestMapping(value="/disease")
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+		String symptom1 = request.getParameter("symptom1");
+		String symptom2 = request.getParameter("symptom2");
+		String symptom3 = request.getParameter("symptom3");
+		DiseaseTable table = new DiseaseTable();
+		table.setSymptom1(symptom1);
+		table.setSymptom2(symptom2);
+		table.setSymptom3(symptom3);
+		String dis[]=DiseaseDao.check(table);
+		System.out.println(dis.length());
+		request.setAttribute("diseases", dis);
+		request.getRequestDispatcher("/WEB-INF/patient/disease.jsp").forward(request, response);
+	}
+}

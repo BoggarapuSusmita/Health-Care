@@ -1,0 +1,23 @@
+<%@page import="health.diseases.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <jsp:useBean id="u" class=""></jsp:useBean>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<%!
+	String symptom1 = request.getParameter("symptom1");
+	String symptom2 = request.getParameter("symptom2");
+	String symptom3 = request.getParameter("symptom3");
+	DiseaseTable table = new DiseaseTable();
+	table.setSymptom1(symptom1);
+	table.setSymptom2(symptom2);
+	table.setSymptom3(symptom3);
+	String dis[]=DiseaseDao.check(table);
+%>
+</body>
+</html>

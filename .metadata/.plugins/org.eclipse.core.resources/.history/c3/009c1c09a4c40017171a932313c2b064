@@ -1,0 +1,37 @@
+package health.diseases;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import health.db.Provider;
+@Controller
+public class DiseaseDao {
+	public static ArrayList<String> check(DiseaseTable table) 
+	{
+		ArrayList<String> list=new ArrayList<>();
+		try 
+		{
+			Connection con = Provider.getConnection();	
+			String sql = "select distinct disease from care where symptom=? or symptom=? or symptom=?";
+			PreparedStatement pst = con.prepareStatement(sql);
+			pst.setString(1, table.getSymptom1());
+			pst.setString(2, table.getSymptom2());
+			pst.setString(3, table.getSymptom3());
+			ResultSet rs = pst.executeQuery();
+			while(rs.next()) {
+				list.add(rs.getString("disease"));
+			}
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+		return list;
+	}
+	@RequestMapping(value="/immprec")
+}

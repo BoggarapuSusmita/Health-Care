@@ -1,0 +1,42 @@
+1508856978040	Delete element
+1508856986211	Delete element
+1508857094849	Delete element
+1509037185736	Rename resource 'PatientLogin.java'
+1509038780984	Rename resource 'home.jsp'
+1509038796028	Rename resource 'home.html'
+1509038828209	Copy file
+1509038835052	Delete element
+1509038876074	Delete element
+1509040301452	Delete element
+1509043089530	Delete element
+1509045832792	Copy compilation unit
+1509045850332	Delete element
+1509045869462	Rename package 'patient'
+1509047885879	Copy package
+1509047937199	Rename type 'PatientLogin'
+1509047991583	Rename type 'PatientUsers'
+1509048016123	Rename type 'PatientUsersDao'
+1509048200831	Delete element
+1509048239703	Delete element
+1509052111419	Copy file
+1509052123549	Rename resource 'patient.html'
+1509052328167	Copy file
+1509052393390	Rename resource 'patientlogin.jsp'
+1509052406134	Copy file
+1509052420383	Rename resource 'patientregister.jsp'
+1509111253732	Copy file
+1509113428872	Delete element
+1509113462804	Delete element
+1509113599442	Delete element
+1509113640903	Delete element
+1509113663458	Delete element
+1509113768363	Delete element
+1509118218635	Delete element
+1509118255856	Delete element
+1509118980676	Delete element
+1509119101347	Move 'patient.jsp' to 'patient'
+1509123562949	Delete element
+1509123678038	Delete element
+1509124270597	Move 'doctorlogin.jsp' to 'patient'
+1509124273929	Move 'doctorregister.jsp' to 'patient'
+1509124279135	Delete element

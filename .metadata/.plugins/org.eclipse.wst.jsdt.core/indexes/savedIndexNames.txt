@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+/Users/Apple/Desktop/s/health/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+1560156755.index
+626143567.index
+1727529658.index
+2221148667.index
+483043470.index
+2238971743.index
+1426010626.index

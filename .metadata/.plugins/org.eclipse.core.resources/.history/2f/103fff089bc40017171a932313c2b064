@@ -1,0 +1,33 @@
+package health.diseases;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import health.db.Provider;
+public class DiseaseDao {
+	public static String[] check(DiseaseTable table) 
+	{
+		int s= 0 ;
+		String dis[] =new String[100];
+		try 
+		{
+			Connection con = Provider.getConnection();	
+			String sql = "select distinct disease from care where symptom=? or symptom=? or symptom=?";
+			PreparedStatement pst = con.prepareStatement(sql);
+			pst.setString(1, table.getSymptom1());
+			pst.setString(2, table.getSymptom2());
+			pst.setString(3, table.getSymptom3());
+			ResultSet rs = pst.executeQuery();
+			while(rs.next()) {
+				dis[s]=rs.getString("disease");
+				s++;
+			}
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+		return dis;
+	}
+}

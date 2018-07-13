@@ -1,0 +1,176 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Patient Register</title>
+<script>
+function ValidatePass()
+{
+ var t = document.forms["myForm"]["password"].value;   
+ var passformat = /^\w+([\@-]?\w+)*$/;
+ 
+ if(t.length<8)
+     {
+          alert("You have entered an invalid password!.The length should be minimum 8 charachters"); 
+            document.forms["myForm"]["password"].focus();
+            return false; 
+
+     }
+     else
+         {
+             return true;
+                    }
+ 
+if(t.match(passformat))  
+{  
+ 
+return true;  
+}  
+else  
+{  
+alert("You have entered an invalid password!.Special charachters only @,hyphen and underscore can be used"); 
+document.forms["myForm"]["password"].focus();
+return false;  
+}  
+}  
+//Checking whether the fields are empty or not on pressing the submit button
+
+
+function validateForm() {
+	var t = document.forms["myForm"]["username"].value;
+    var u = document.forms["myForm"]["password"].value;
+    var v = document.forms["myForm"]["gender"].value;
+    var w = document.forms["myForm"]["age"].value;
+    var x = document.forms["myForm"]["contact_no"].value;
+    var y = document.forms["myForm"]["securityquestion"].value;
+    var z = document.forms["myForm"]["answer"].value;
+if((x==null || x=="")&&(y==null || y=="")&&(z==null || z=="") && (t==null || t=="")&&(w==null || w=="")&&(v==null || v=="") && (u==null || u=="")) 
+{
+        alert("All fields are blank");
+        document.forms["myForm"]["username"].focus();//to highlight this field
+        return false;
+        
+    }
+   
+ if (t==null || t=="") {
+        alert(" Username is missing");
+        document.forms["myForm"]["username"].focus();//to highlight this field
+        return false;
+        
+    }
+ if (u==null || u=="") {
+     alert("Password  must be filled ");
+      document.forms["myForm"]["password"].focus();
+     return false;
+    
+ }
+    if (v==null || v=="") {
+        alert("Gender must be filled ");
+         document.forms["myForm"]["gender"].focus();
+        return false;
+       
+    }
+   if (w==null || w=="") {
+        alert("Age must be filled ");
+         document.forms["myForm"]["age"].focus();
+        return false;
+       
+    }
+    
+    if (x==null || x=="") {
+        alert("Contact No  must be filled ");
+         document.forms["myForm"]["contact_no"].focus();
+        return false;
+       
+    }
+    if (y==null || y=="") {
+        alert("Security Question must be filled ");
+         document.forms["myForm"]["securityquestion"].focus();
+        return false;
+       
+    }
+    if (z==null || z=="") {
+        alert("Security answer  must be filled ");
+         document.forms["myForm"]["answer"].focus();
+        return false;  
+    }
+}
+//Checking whether a field contains number or not when the field loses its focus
+
+/*function blurred()
+{
+  var y = document.forms["myForm"]["contact_no"].value;
+  if(isNaN(y)==true)
+  {
+    alert("Plz enter a valid contact no.");
+    document.forms["myForm"]["contact_no"].focus();
+    return false;
+  }
+  else{
+  if(y.length<10 || y.length>10)
+      {
+          alert("Plz enter a valid contact no.Plz check the length. ");
+          document.forms["myForm"]["contact_no"].focus();    
+          return false;
+      }
+      else
+          {
+              return true;
+          }
+  }
+}*/
+</script>
+</head>
+<body>
+        <table width="100%" height="100%">
+         <tr>
+           <td bgcolor="white">
+           <center> <font face="Arial" size="9" color="blue">Sehat</font></center>
+           <marquee><font face="Jokerman" size="5" color="green">Jaan hai toh jahan hai</font></marquee>
+          <form action="h">
+	<input type="submit" value="HOME">
+</form>
+           </td>
+        </tr>
+         <tr>
+             <td bgcolor="RoyalBlue"><br><br>
+                 <table width="100%" height="100%">
+                     
+                     <tr>
+                         <td colspan="2" align="center">
+                             <font face="impact" size="6">Sign-Up</font><br><br><br>
+                         </td>
+                     </tr>
+                     <tr>
+                         <td align="center">
+                             <form  name="myForm" method="post" action="pregister"  >
+                                 <table width="50%">
+                                     
+                                     <tr><td><font color="red" size="4">All Fields are mandatory</font></td></tr>    
+                                    <tr><td>USERNAME:</td><td><input type ="text" name="username"><br><br></td></tr>
+                                    <tr><td>DOB</td><td><input type="date" name = "age"><br><br></td></tr>
+									<tr><td>GENDER:</td><td><input type ="text" name="gender"><br><br></td></tr>
+                                    <tr><td>CONTACT NO.</td><td><input type="text" name="contact_no"><br><br></td></tr>
+                                     <tr><td>PASSWORD:</td><td><input type="password" name="password" ><br><br></td></tr>
+                                     <tr><td>SECURITY QUESTION:</td><td><select name="securityquestion">
+                                               <option value="">Select your Question</option>  
+                                               <option value="PetName">Pet Name</option>
+                                               <option value="SchoolName">School Name</option>
+                                               <option value="FavFood">Favourite Food</option>
+                                               <option value="FavAuthor">Favourite Author</option>
+                                               </select><br><br></td></tr>
+                                              
+                                     <tr><td>ANSWER:</td><td><input type ="text" name="answer"><br><br></td></tr>
+                                     <tr><td></td><td><input type ="submit" value="SUBMIT"></td></tr></table><br><br>
+                            			${notreg}
+                             </form>
+                         </td>
+                     </tr>
+                 </table>
+             </td>
+         </tr>
+        </table> 
+    </body>
+</html>

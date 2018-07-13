@@ -1,0 +1,25 @@
+package health.diseases;
+
+public class DiseaseTable {
+	String symptom;
+	String disease;
+	String precautions;
+	public String getSymptom() {
+		return symptom;
+	}
+	public void setSymptom(String symptom) {
+		this.symptom = symptom;
+	}
+	public String getDisease() {
+		return disease;
+	}
+	public void setDisease(String disease) {
+		this.disease = disease;
+	}
+	public String getPrecautions() {
+		return precautions;
+	}
+	public void setPrecautions(String precautions) {
+		this.precautions = precautions;
+	}
+}

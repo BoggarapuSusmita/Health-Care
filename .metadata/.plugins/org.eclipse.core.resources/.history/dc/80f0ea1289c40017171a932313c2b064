@@ -1,0 +1,22 @@
+package health.diseases;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+@Controller
+public class Diseases extends HttpServlet{
+	String symptom1;
+	String symptom2;
+	String symptom3;
+	@RequestMapping(value="/plogin")
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+		symptom1 = request.getParameter("symptom1");
+		symptom2 = request.getParameter("symptom2");
+		symptom3 = request.getParameter("symptom3");
+	}
+}

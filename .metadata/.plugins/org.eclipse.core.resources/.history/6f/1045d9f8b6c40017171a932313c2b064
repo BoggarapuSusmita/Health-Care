@@ -1,0 +1,32 @@
+package health.diseases;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class AddCare {
+	@RequestMapping(value="/acare")
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+		DiseaseTable table = new DiseaseTable();
+		table.setDisease(request.getParameter("disease"));
+		table.setPrecautions(request.getParameter("precaution"));
+		table.setSymptom1(request.getParameter("symptom"));
+		int status=DiseaseDao.add(table);
+		if(status > 0)
+		{
+			request.getRequestDispatcher("/WEB-INF/patient/doctorhome.jsp").forward(request, response);
+		}
+		else
+		{
+			request.setAttribute("notreg", "NOT REGISTERED.......TRY AGAIN");
+			request.getRequestDispatcher("/WEB-INF/patient/patientregister.jsp").forward(request, response);
+		}
+	}
+}
